@@ -24,6 +24,15 @@ int main(){
     };
     for(;;){
         char buffer[1024];
+        poll(fds,2,-1);
+        if(fds[0].revents & POLLIN){
+            ssize_t bytes=read(STDIN_FILENO,buffer,sizeof(buffer)-1);
+            if(bytes>0){
+                send(client_fd,buffer,bytes,0);
+
+            }
+            
+        }
     }
 
 
