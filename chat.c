@@ -37,10 +37,15 @@ int main(){
         if(fds[1].revents & POLLIN){
             ssize_t bytes=recv(client_fd,buffer,sizeof(buffer)-1,0);
             if(bytes<=0){
-                printf("CLinet disconneted")
+                printf("CLinet disconneted");
+                break;
             }
+            printf("client : %s",buffer);
         }
     }
+    close(client_fd);
+    close(server_fd);
+    return 0;
 
 
 
