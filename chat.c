@@ -16,6 +16,11 @@ int main(){
     bind(server_fd,(struct sockaddr*)&server_addr,sizeof(server_addr));
     listen(server_fd,10);
     printf("Currently waiting for the connection");
+    int client_fd=accept(server_fd,NULL,NULL);
+    printf("Client has connected");
+    struct pollfd fds[2]={
+        {.fd=STDIN}
+    }
 
 
 
