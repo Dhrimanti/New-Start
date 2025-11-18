@@ -31,7 +31,14 @@ int main(){
                 send(client_fd,buffer,bytes,0);
 
             }
-            
+
+        }
+
+        if(fds[1].revents & POLLIN){
+            ssize_t bytes=recv(client_fd,buffer,sizeof(buffer)-1,0);
+            if(bytes<=0){
+                printf("CLinet disconneted")
+            }
         }
     }
 
