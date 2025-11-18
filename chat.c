@@ -19,7 +19,11 @@ int main(){
     int client_fd=accept(server_fd,NULL,NULL);
     printf("Client has connected");
     struct pollfd fds[2]={
-        {.fd=STDIN}
+        {.fd=STDIN_FILENO,.events=POLLIN},
+        {.fd=client_fd,.events=POLLIN}
+    };
+    for(;;){
+        char buffer[1024];
     }
 
 
