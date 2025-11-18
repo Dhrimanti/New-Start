@@ -14,7 +14,9 @@ int main(){
         .sin_addr.s_addr=inet_addr("127.0.0.1")
     };
     bind(server_fd,(struct sockaddr*)&server_addr,sizeof(server_addr));
-    
+    listen(server_fd,10);
+    printf("Currently waiting for the connection");
+
 
 
 }
